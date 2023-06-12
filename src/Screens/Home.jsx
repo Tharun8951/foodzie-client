@@ -8,21 +8,22 @@ export default function Home() {
   const [foodItems, setFoodItems] = useState([])
   const [foodCat, setFoodCat] = useState([])
 
-  const loadData = async () => {
-    let response = await fetch('https://foodzie-server.vercel.app/api/foodData', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    response = await response.json()
-    setFoodItems(response.food_items)
-    setFoodCat(response.food_cat)
-  }
-  console.log(foodCat)
-  console.log(foodItems)
+  
+  // console.log(foodCat)
+  // console.log(foodItems)
 
   useEffect(() => {
+    const loadData = async () => {
+      let response = await fetch('https://foodzie-server.vercel.app/api/foodData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      response = await response.json()
+      setFoodItems(response.food_items)
+      setFoodCat(response.food_cat)
+    }
     loadData()
   }, [])
 
