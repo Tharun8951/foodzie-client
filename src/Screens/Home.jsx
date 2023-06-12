@@ -9,7 +9,7 @@ export default function Home() {
   const [foodCat, setFoodCat] = useState([])
 
   const loadData = async () => {
-    let response = await fetch('http://localhost:4040/api/foodData', {
+    let response = await fetch('https://foodzie-server.vercel.app/api/foodData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

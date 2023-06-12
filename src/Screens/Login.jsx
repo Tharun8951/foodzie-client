@@ -10,7 +10,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch('http://localhost:4040/api/loginuser', {
+    const response = await fetch('https://foodzie-server.vercel.app/api/loginuser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch('http://localhost:4040/api/createuser', {
+    const response = await fetch('https://foodzie-server.vercel.app/api/createuser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
