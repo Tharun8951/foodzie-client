@@ -109,7 +109,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCat.length !== 0 ? (
+        {foodCat !== 0 ? (
           foodCat.map((data) => {
             return (
               <div className="row mb-5">
@@ -117,7 +117,7 @@ export default function Home() {
                   {data.CategoryName}
                 </div>
                 <hr />
-                {foodItems.length !== 0 ? (
+                {foodItems !== 0 ? (
                   foodItems
                     .filter(
                       (item) =>
