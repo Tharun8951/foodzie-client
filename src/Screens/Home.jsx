@@ -11,8 +11,8 @@ export default function Home() {
 
   const loadData = async () => {
 
-    // await axios.get(`https://foodzie-server.vercel.app/api/foodData`)
-    await axios.get(`http://localhost:4040/api/foodData`)
+    await axios.get(`https://foodzie-server.vercel.app/api/foodData`)
+    // await axios.get(`http://localhost:4040/api/foodData`)
     .then(res => {
       console.log(res)
       const response_fooditems = res.data.food_items 
