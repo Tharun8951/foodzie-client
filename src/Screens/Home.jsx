@@ -15,7 +15,7 @@ export default function Home() {
         'https://foodzie-server.vercel.app/api/foodData',
         // 'http://localhost:4040/api/foodData',
         {
-          method: 'POST',
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
