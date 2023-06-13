@@ -8,13 +8,12 @@ export default function Home() {
   const [foodItems, setFoodItems] = useState([])
   const [foodCat, setFoodCat] = useState([])
 
-  // console.log(foodCat)
-  // console.log(foodItems)
 
   useEffect(() => {
     const loadData = async () => {
       let response = await fetch(
         'https://foodzie-server.vercel.app/api/foodData',
+        // 'http://localhost:4040/api/foodData',
         {
           method: 'POST',
           headers: {
@@ -23,6 +22,7 @@ export default function Home() {
         },
       )
       response = await response.json()
+      console.log(response.foodItems)
       setFoodItems(response.food_items)
       setFoodCat(response.food_cat)
     }
@@ -149,40 +149,35 @@ export default function Home() {
         )}
       </div> */}
       <div className="container">
-        {foodCat.length !== 0 ? (
-          foodCat.map((data) => {
-            return (
-              <div className="row mb-5" key={data._id}>
-                <div className="fs-3 m-3">{data.CategoryName}</div>
-                <hr />
-                {foodItems.length !== 0 ? (
-                  foodItems
-                    .filter(
-                      (item) =>
-                        item.CategoryName === data.CategoryName &&
-                        item.name.toLowerCase().includes(search.toLowerCase()),
-                    )
-                    .map((filteredData) => {
-                      return (
-                        <div
-                          key={filteredData._id}
-                          className="col-12 col-md-6 col-lg-3 me-3"
-                        >
-                          <Card data={filteredData} />
-                        </div>
-                      )
-                    })
-                ) : (
-                  <h1>No Data found</h1>
-                )}
-              </div>
-            )
-          })
+        {foodCat !== [] ? (
+          foodCat.map((data) => (
+            <div className="row mb-5" key={data._id}>
+              <div className="fs-3 m-3">{data.CategoryName}</div>
+              <hr />
+              {foodItems !== [] ? (
+                foodItems
+                  .filter(
+                    (item) =>
+                      item.CategoryName === data.CategoryName &&
+                      item.name.toLowerCase().includes(search.toLowerCase()),
+                  )
+                  .map((filteredData) => (
+                    <div
+                      key={filteredData._id}
+                      className="col-12 col-md-6 col-lg-3 me-3"
+                    >
+                      <Card data={filteredData} />
+                    </div>
+                  ))
+              ) : (
+                <h1>goofy ah balls</h1>
+              )}
+            </div>
+          ))
         ) : (
-          <h1>No Categories found</h1>
+          <h1>pussy (real)</h1>
         )}
       </div>
-
       <div>
         {' '}
         <Footer />{' '}
