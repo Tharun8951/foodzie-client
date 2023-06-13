@@ -136,13 +136,13 @@ export default function Home() {
                       )
                     })
                 ) : (
-                  <h1>goofy aah balls</h1>
+                  <h1>  something went wrong </h1>
                 )}
               </div>
             )
           })
         ) : (
-          <h1> pussy (real)</h1>
+          <h1> something went wrong </h1>
         )}
       </div>
       <div>
