@@ -7,7 +7,7 @@ export default function Card({data}) {
   const [size, setSize] = useState("")
 
   let options = data.options[0]
-  let priceOptions = Object.keys(options)
+  let priceOptions = Object.keys(options).slice(1)
 
   return (
     <div>
